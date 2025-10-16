@@ -1,0 +1,185 @@
+:root {
+    /* Core Palette: Maroon and Grey/White */
+    --maroon: #7A1F2E;
+    --maroon-dark: #6B1526;
+    --grey-dark: #2E3840;
+    --grey-medium: #6C7280;
+    --grey-light: #F4F5F6;
+    --white: #FFFFFF;
+
+    /* Status Colors */
+    --success: #1F6F44;
+    --warning: #B46B00;
+    --error: #7D2422;
+
+    /* UI Variables */
+    --radius: 10px;
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* --- BASE & LAYOUT --- */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--grey-dark);
+    background-color: var(--grey-light);
+    min-height: 100vh;
+}
+
+/* Centralizing the Login page content */
+.login-center-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* --- CONTAINERS & PANELS --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.panel, .form-section {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: 20px;
+}
+
+/* Mapping .form-container for login page box */
+.form-container, .side {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow-subtle);
+}
+
+
+/* --- HEADER --- */
+header, .header {
+    background-color: var(--maroon);
+    color: var(--white);
+    padding: 18px 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    width: 40px; height: 40px; border-radius: 8px;
+    background-color: var(--maroon-dark);
+    display: grid; place-items: center;
+    font-weight: bold; font-size: 1.2rem;
+    color: var(--white);
+    margin-right: 12px;
+}
+.header h1, header h1 {
+    font-size: 1.25rem;
+    color: var(--white);
+    display: flex; align-items: center;
+}
+.brand { display: flex; align-items: center; }
+
+
+/* --- TYPOGRAPHY --- */
+h2 { font-size: 1.2rem; border-bottom: 1px solid var(--grey-light); padding-bottom: 8px; margin-bottom: 15px; color: var(--maroon-dark); }
+h3 { font-size: 1.1rem; color: var(--maroon); margin-bottom: 10px; }
+.label { display: block; margin-bottom: 6px; font-weight: 600; color: var(--grey-medium); }
+
+
+/* --- INPUTS & FORMS --- */
+.input, textarea, select {
+    width: 100%; padding: 10px 12px; border-radius: 6px;
+    border: 1px solid #ccc; background-color: var(--white);
+    transition: border-color 0.2s;
+}
+.input:focus, textarea:focus, select:focus {
+    border-color: var(--maroon); box-shadow: 0 0 0 2px rgba(122, 31, 46, 0.1); outline: none;
+}
+.input-group, .field { margin-bottom: 15px; }
+
+
+/* --- BUTTONS (Strict Palette) --- */
+
+/* Base Button Style (Glass/Grey) */
+.btn, button, .register-btn {
+    display: inline-flex; justify-content: center; align-items: center;
+    padding: 10px 18px; border-radius: 6px;
+    font-weight: 600; cursor: pointer; text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+    border: none; /* Removed the complex border */
+}
+
+/* Primary Button: Solid Maroon */
+.btn--solid, button[type="submit"], .register-btn {
+    background-color: var(--maroon);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(122, 31, 46, 0.2);
+}
+.btn--solid:hover, button[type="submit"]:hover {
+    background-color: var(--maroon-dark);
+    transform: translateY(-1px);
+}
+
+/* Secondary/Logout Button: Dark Grey */
+.logout {
+    background-color: var(--grey-medium);
+    color: var(--white);
+}
+.logout:hover {
+    background-color: #5a6068;
+}
+
+/* Action Buttons (For Enroll/Reject/View) */
+.action-button {
+    padding: 8px 12px; font-size: 0.9em; margin-right: 5px;
+}
+
+
+/* --- CARDS & LISTS --- */
+.card {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: 15px;
+    border-left: 5px solid var(--maroon); /* Maroon accent bar */
+    transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+/* --- TABS --- */
+.tabs { display: flex; gap: 8px; background-color: var(--grey-light); padding: 8px; border-radius: var(--radius); margin-bottom: 20px; }
+.tab-button {
+    padding: 10px 15px; border-radius: 6px; font-weight: 600; color: var(--grey-medium);
+    background-color: transparent; border: none; cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+.tab-button:hover { color: var(--maroon); }
+.tab-button.active {
+    /* Active tabs should clearly highlight with the primary color */
+    color: var(--maroon);
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- STATUS & MESSAGES --- */
+.status { padding: 12px; border-radius: 6px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.status--success { background-color: #D4EDDA; color: var(--success); }
+.status--error { background-color: #F8D7DA; color: var(--error); }
+.status--warn { background-color: #FFF3CD; color: var(--warning); }
+.error { color: var(--maroon); font-weight: 600; }
